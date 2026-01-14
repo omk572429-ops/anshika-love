@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Anshika ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+    overflow-x: hidden;
+  }
+  .page {
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: none;
+    animation: fadeIn 1s ease;
+  }
+  .page.active { display: block; }
+  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }h1, h2 { text-align: center; } h1 { font-family: 'Great Vibes', cursive; font-size: 3rem; color: #b4004e; } h2 { color: #6b0030; }
+
+.card { background: rgba(255,255,255,0.85); border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); max-width: 900px; margin: 20px auto; }
+
+.photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; } .photos img { width: 100%; border-radius: 15px; object-fit: cover; }
+
+.btn { display: block; margin: 25px auto 0; padding: 12px 28px; background: #ff4f81; color: #fff; border: none; border-radius: 30px; font-size: 1rem; cursor: pointer; }
+
+.quote { font-style: italic; text-align: center; margin: 15px 0; color: #4a0020; }
+
+video, iframe { width: 100%; border-radius: 15px; margin-top: 15px; }
+
+#reader { width: 300px; margin: 0 auto; } </style>
+
+</head>
+<body><audio id="ding" src="https://assets.mixkit.co/sfx/preview/mixkit-magical-coin-win-1936.mp3"></audio>
+
+<!-- PAGE 1: QR SCANNER --><section class="page active" id="page1">
+  <h1>For My Love, Anshika ❤️</h1>
+  <div class="card">
+    <h2>Scan the QR Code</h2>
+    <p style="text-align:center">A little surprise is waiting for you, Anshika ✨</p>
+    <div id="reader"></div>
+  </div>
+</section><!-- PAGE 2: LETTER --><section class="page" id="page2">
+  <h1>My Letter to You, Anshika</h1>
+  <div class="card">
+    <p>
+      My dearest Anshika,<br><br>
+      Every time I see you smile, my world feels complete. You are my calm, my happiness,
+      and my favorite person. This little surprise is just a small way to remind you how
+      special you are to me. Thank you for being you, Anshika — beautiful inside and out.
+      <br><br>
+      Forever yours ❤️
+    </p>
+  </div>
+  <button class="btn" onclick="nextPage(3)">Next ✨</button>
+</section><!-- PAGE 3: PHOTOS --><section class="page" id="page3">
+  <h1>Anshika 🌸</h1>
+  <div class="card">
+    <h2>Your Beautiful Moments</h2>
+    <div class="photos">
+      <!-- Replace src with the uploaded photos if needed -->
+      <img src="image1.jpg" alt="Anshika photo" />
+      <img src="image2.jpg" alt="Anshika photo" />
+      <img src="image3.jpg" alt="Anshika photo" />
+      <img src="image4.jpg" alt="Anshika photo" />
+    </div>
+  </div>
+  <button class="btn" onclick="nextPage(4)">Next 💕</button>
+</section><!-- PAGE 4: QUOTES --><section class="page" id="page4">
+  <h1>For Anshika 💖</h1>
+  <div class="card">
+    <p class="quote">“In all the world, there is no heart for me like yours.”</p>
+    <p class="quote">“You are my today and all of my tomorrows, Anshika.”</p>
+    <p class="quote">“Loving you is my favorite thing to do.”</p>
+  </div>
+  <button class="btn" onclick="nextPage(5)">Next 😄</button>
+</section><!-- PAGE 5: FUNNY KITTENS --><section class="page" id="page5">
+  <h1>Smile Time, Anshika 🐾</h1>
+  <div class="card">
+    <h2>Funny Kittens & Cute Couples</h2>
+    <iframe src="https://www.youtube.com/embed/J---aiyznGQ" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/1Ne1hqOXKKI" allowfullscreen></iframe>
+  </div>
+</section><script>
+  function nextPage(n) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page' + n).classList.add('active');
+  }
+
+  const ding = document.getElementById('ding');
+
+  function onScanSuccess(decodedText) {
+    ding.play();
+    nextPage(2);
+    html5QrcodeScanner.clear();
+  }
+
+  const html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 }
+  );
+  html5QrcodeScanner.render(onScanSuccess);
+</script></body>
+        </html>
